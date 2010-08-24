@@ -6,10 +6,10 @@ Easily create documentation of your Controller and Model for your ColdFusion on 
 
 ## Installation (manual)
 
-* Drop it inside the /plugins folder in your Wheels application. 
+* Drop ColdDoc-X.X.zip inside the /plugins folder in your Wheels application. 
 * Restart your application using ?reload=true
 
-## Installation using of ColdDoc (required)
+## Installation of ColdDoc (required)
 
-* Drop colddoc inside the webroot folder in your Wheels application.
+* Drop ColdDoc inside the webroot folder in your Wheels application.
 Download here http://colddoc.riaforge.org/
