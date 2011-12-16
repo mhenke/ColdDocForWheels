@@ -17,15 +17,15 @@
 </ul>
 
 <h2>Generate form</h2>
-<cfif isDefined("URL.typeOfColdDoc") and isDefined("URL.strategyOfColdDoc")>
+<cfif isDefined("form.typeOfColdDoc") and isDefined("form.strategyOfColdDoc")>
 	<cfoutput>
 	<cfsavecontent variable="href">
-	/#URL.strategyOfColdDoc#/<cfif URL.strategyOfColdDoc EQ 'html'>index.html<cfelse>colddoc.uml</cfif>
+	/#form.strategyOfColdDoc#/<cfif form.strategyOfColdDoc EQ 'html'>index.html<cfelse>colddoc.uml</cfif>
 	</cfsavecontent>
 	
-    <p><tt>#generateColdDoc(URL.typeOfColdDoc, URL.strategyOfColdDoc)#</tt></p>
+    <p><tt>#generateColdDoc(form.typeOfColdDoc, form.strategyOfColdDoc)#</tt></p>
     
-    <p><a href="#href#">Documentation #URL.strategyOfColdDoc# Generated</a></p>
+    <p><a href="#href#">Documentation #form.strategyOfColdDoc# Generated</a></p>
     </cfoutput>
 <cfelse>
 
