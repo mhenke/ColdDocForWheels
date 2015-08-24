@@ -22,7 +22,7 @@
 <cfif isDefined("form.typeOfColdDoc") and isDefined("form.strategyOfColdDoc")>
 	<cfoutput>
 	<cfsavecontent variable="href">
-	/#form.strategyOfColdDoc#/<cfif form.strategyOfColdDoc EQ 'html'>index.html<cfelse>colddoc.uml</cfif>
+	<cfif form.outputDirectory neq "">/#form.outputDirectory#</cfif>/#form.strategyOfColdDoc#/<cfif form.strategyOfColdDoc EQ 'html'>index.html<cfelse>colddoc.uml</cfif>
 	</cfsavecontent>
 	
     <p><tt>#generateColdDoc(form.typeOfColdDoc, form.strategyOfColdDoc, form.outputDirectory)#</tt></p>
