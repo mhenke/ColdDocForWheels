@@ -1,5 +1,7 @@
 <!--- get the available templates from the template folder --->
 
+<cfparam name="form.outputDirectory" default="" />
+
 <h1>ColdDoc</h1>
 
 <p><a href="http://colddoc.riaforge.org/">ColdDoc</a> is a tool that has been built to generate documentation based on ColdFusion Component Meta Data.</p>
@@ -23,7 +25,7 @@
 	/#form.strategyOfColdDoc#/<cfif form.strategyOfColdDoc EQ 'html'>index.html<cfelse>colddoc.uml</cfif>
 	</cfsavecontent>
 	
-    <p><tt>#generateColdDoc(form.typeOfColdDoc, form.strategyOfColdDoc)#</tt></p>
+    <p><tt>#generateColdDoc(form.typeOfColdDoc, form.strategyOfColdDoc, form.outputDirectory)#</tt></p>
     
     <p><a href="#href#">Documentation #form.strategyOfColdDoc# Generated</a></p>
     </cfoutput>
@@ -35,6 +37,10 @@
 
 <!--- Form --->
 <cfform action="#CGI.script_name & '?' & CGI.query_string#">
+
+	<p><label for="outputDirectory">Output Directory (leave blank to use webroot)</label> <br>
+		<input name="outputDirectory">
+	</p>
 	
 	<p><label for="typeOfColdDoc">Type</label> <br>
 	<cfselect name="typeOfColdDoc">
