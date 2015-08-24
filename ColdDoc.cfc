@@ -8,6 +8,7 @@
 	<cffunction name="generateColdDoc" access="public" returnType="string" hint="Creates a Model a Controller and the Views for the name of the argument passed" output="false">
 		<cfargument name="type" type="string" required="true" default="everything" hint="Type of generation to execute, values are: everything, controller, model">
 		<cfargument name="strategy" type="string" required="true" hint="Name of the object to ColdDoc">
+		<cfargument name="directory" type="string" required="false" default="" hint="Directory in which generated ColdDoc generated files are placed">
 		
 		<cfset var loc = {}>
 		
@@ -16,9 +17,9 @@
 		
 		<cfset loc.colddoc = createObject("component", "ColdDoc.ColdDoc").init() />
 		<cfif (arguments.strategy IS "html")>
-			<cfset loc.strategy = createObject("component", "colddoc.strategy.api.HTMLAPIStrategy").init(expandPath("./#arguments.strategy#"), "ColdDoc 1.0 Alpha") />
+			<cfset loc.strategy = createObject("component", "colddoc.strategy.api.HTMLAPIStrategy").init(expandPath("./#arguments.directory#/#arguments.strategy#"), "ColdDoc 1.0 Alpha") />
 		<cfelseif (arguments.strategy IS "uml")>
-			<cfset loc.strategy = createObject("component", "colddoc.strategy.uml2tools.XMIStrategy").init(expandPath("./#arguments.strategy#/colddoc.uml")) />
+			<cfset loc.strategy = createObject("component", "colddoc.strategy.uml2tools.XMIStrategy").init(expandPath("./#arguments.directory#/#arguments.strategy#/colddoc.uml")) />
 		</cfif>
 		
 		<cfset loc.colddoc.setStrategy(loc.strategy) />
